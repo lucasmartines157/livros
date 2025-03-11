@@ -1,24 +1,20 @@
+<?php
+namespace PHP\Modelo;
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<php
-class Livro:
-def __init__(self, titulo, autor, preco, estoque):
-    self.titulo = titulo
-    self.autor = autor
-    self.preco = preco
-    self.estoque = estoque
+class Livro {
+    protected string $titulo;
+    protected string $autor;
+    protected float $preco;
 
-def verificar_disponibilidade(self):
-    return self.estoque > 0
+    public function __construct(string $titulo, string $autor, float $preco) {
+        $this->titulo = $titulo;
+        $this->autor = $autor;
+        $this->preco = $preco;
+    }
 
-def reservar_livro(self):
-    if self.estoque > 0:
-        self.estoque -= 1
-        return True
-    return False
+    public function imprimir(): string {
+        return "Título: " . $this->titulo . ", Autor: " . $this->autor . ", Preço: R$ " . number_format($this->preco, 2, ',', '.');
+    }
+}
+?>
 
-    
